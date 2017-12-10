@@ -1,6 +1,7 @@
 let answer = document.getElementById('answer');
 let attempt = document.getElementById('attempt');
 
+// check input when user submits guess
 function guess() {
     let input = document.getElementById('user-guess');
 
@@ -29,6 +30,7 @@ function guess() {
 }
 
 
+// set randomly generated number
 function setHiddenFields() {
 	attempt.value = 0;
 	answer.value = Math.floor(Math.random() * 10000).toString();
@@ -38,10 +40,12 @@ function setHiddenFields() {
 	attempt.value = "0";
 };
 
+// message
 function setMessage(message) {
 	document.getElementById('message').innerHTML = message;
 };
 
+// check if input length is correct 
 function validateInput(input) {
 	if (input.length != 4) {
 		setMessage("Guesses must be exactly 4 characters long.");
@@ -50,11 +54,7 @@ function validateInput(input) {
 	return true;
 };
 
-function getResults(result) {
-	let results = document.getElementById('results');
-	
-};
-
+// compare input with answer
 function getResults(input) {
 	let html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
 	for(i = 0; i < input.length; i++) {
@@ -76,6 +76,7 @@ function getResults(input) {
 	return false;
 }
 
+// show answer on win/lose
 function showAnswer(success) {
 	let code = document.getElementById('code');
 	if(success) {
@@ -86,6 +87,7 @@ function showAnswer(success) {
 	code.innerHTML = answer.value;
 }
 
+// replay button at the end of game
 function showReplay() {
 	document.getElementById('guessing-div').style.display = "none";
 	document.getElementById('replay-div').style.display = "block";
