@@ -28,9 +28,9 @@ function guess() {
  
 }
 
-//implement new functions here
+
 function setHiddenFields() {
-	attempt = 0;
+	attempt.value = 0;
 	answer.value = Math.floor(Math.random() * 10000).toString();
 	while (answer.value.length < 4) {
 		answer.value = '0' + answer.value;
@@ -63,7 +63,7 @@ function getResults(input) {
 		} else if (answer.value.indexOf(input.charAt(i)) > -1) {
 			html += '<span class="glyphicon glyphicon-transfer"></span>';
 		} else {
-			html += '<span class="glyphicon glyphicon-remove"></span>'
+			html += '<span class="glyphicon glyphicon-remove"></span>';
 		}
 	}
 	html += '</div></div>';
